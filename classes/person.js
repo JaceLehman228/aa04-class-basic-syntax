@@ -14,25 +14,23 @@ class Person {
     if(!(Array.isArray(arr))) {
       throw new Error('introducePeople only takes an array as an argument.');
     } else {
-      let i = 0;
-      while(i < arr.length) {
-        if(!(arr[i] instanceof Person)) {
+      arr.forEach(person => {
+        if(!(person instanceof Person)) {
           throw new Error("All items in array must be Person class instances.");
         } else {
-          arr[i].introduce();
-          i++;
+          person.introduce();
         }
-      }
+      });
     }
   }
 }
-// let person1 = new Person('Jace', 
-//   'Lehman', 
-//   20);
-// let person2 = new Person('Jack', 
-//   'Driver',
-//   24);
-//   console.log(Person.introducePeople(person1, person2));
+let person1 = new Person('Jace', 
+  'Lehman', 
+  20);
+let person2 = new Person('Jack', 
+  'Driver',
+  24);
+Person.introducePeople([person1, person2]);
 /****************************************************************************/
 /******************* DO NOT EDIT CODE BELOW THIS LINE ***********************/
 
